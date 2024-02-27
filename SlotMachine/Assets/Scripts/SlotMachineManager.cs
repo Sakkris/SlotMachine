@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SlotMachineManager : MonoBehaviour
@@ -11,6 +12,9 @@ public class SlotMachineManager : MonoBehaviour
     [SerializeField] private Slot[] _slots;
     [SerializeField, Range(0.0f, 5.0f)] private float _animationTime = 1.0f;
     [SerializeField, Range(0.0f, 5.0f)] private float _animationDiffTime = .2f;
+
+    [Header("Combos")]
+    [SerializeField] private ComboSO[] _comboSOArray;
 
     [Header("Interface")]
     [SerializeField] private TextMeshProUGUI _creditsText;
@@ -91,16 +95,54 @@ public class SlotMachineManager : MonoBehaviour
 
         if (_completedSlots == _slots.Length)
         {
-            _isSpinning = false;
             CalculateWin();
+            _isSpinning = false;
         }
 
     }
 
     private void CalculateWin()
     {
-        Debug.Log("Here");
+        ComboSO achievedCombo = ScriptableObject.CreateInstance<ComboSO>();
+
+        foreach (ComboSO comboSO in _comboSOArray)
+        {
+            List<FruitSO> tempFruitList = new List<FruitSO>(_selectedFruitsList);
+            bool comboMatch = true;
+
+            foreach (FruitSO fruitSO in comboSO.Fruits)
+            {
+                if (tempFruitList.Contains(fruitSO))
+                {
+                    tempFruitList.Remove(fruitSO);
+                }
+                else
+                {
+                    comboMatch = false;
+                    break;
+                }
+            }
+
+            if (!comboMatch) continue;
+
+            if (achievedCombo.Fruits == null || achievedCombo.Multiplier < comboSO.Multiplier)
+            {
+                achievedCombo = comboSO;
+                continue;
+            }
+        }
+
+        if (achievedCombo.Fruits != null)
+        {
+            Win(achievedCombo);
+        }
+
         _selectedFruitsList.Clear();
+    }
+
+    private void Win(ComboSO achievedCombo)
+    {
+        AddCredits(achievedCombo.Multiplier * _betAmount);
     }
 
     public void ChangeBetAmount(int bet)

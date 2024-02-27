@@ -1380,7 +1380,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
+  m_ChildAlignment: 4
   m_Spacing: 50
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
@@ -2403,8 +2403,10 @@ MonoBehaviour:
   - {fileID: 1754345597}
   _animationTime: 1
   _animationDiffTime: 0.5
-  _playerCredits: 0
-  _betAmount: 0
+  _comboSOArray:
+  - {fileID: 11400000, guid: a62dbd2c5f82f3545828697eb6e89168, type: 2}
+  - {fileID: 11400000, guid: d897e02bc2a6cf14f9bd92c54279249b, type: 2}
+  - {fileID: 11400000, guid: 42fa4c51152463943b41fd64f5744032, type: 2}
   _creditsText: {fileID: 70113606}
   _betText: {fileID: 1495120740}
 --- !u!1001 &2097880128

@@ -166,20 +166,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78a48b31abab50f4ca0dcbe9d99c99c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fruitSprites:
+  _fruitSOs:
   - {fileID: 11400000, guid: 1ec8963e674b4ca4884111d197907e2d, type: 2}
   - {fileID: 11400000, guid: 4f3a3d98aa5bbcf4a8258a48414f4783, type: 2}
   - {fileID: 11400000, guid: cbda6600523333b4cad14aa6332c5722, type: 2}
   - {fileID: 11400000, guid: 7ad1df6ff896caa45b8a04331d0aaf85, type: 2}
+  - {fileID: 11400000, guid: 935f2e3e8267c734b9d65528f0819531, type: 2}
   - {fileID: 11400000, guid: 68f9f98e3b1481f41946c4fa839dfec1, type: 2}
   - {fileID: 11400000, guid: 064b305b71b65ed43a90c7dbe54cf4e6, type: 2}
   - {fileID: 11400000, guid: 369c4c19cae3cc74e960e4f08883811f, type: 2}
   - {fileID: 11400000, guid: 856025745f6600f42af33e6548ba86b4, type: 2}
   - {fileID: 11400000, guid: 940062b229f688e4593b21dec7b7aa1a, type: 2}
-  - {fileID: 11400000, guid: 935f2e3e8267c734b9d65528f0819531, type: 2}
   _imageContainer: {fileID: 337687493866166637}
   _timeBetweenChange: 0.05
-  _betText: {fileID: 0}
 --- !u!114 &990789240427162613
 MonoBehaviour:
   m_ObjectHideFlags: 0

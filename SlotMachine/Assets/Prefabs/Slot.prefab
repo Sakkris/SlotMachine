@@ -179,6 +179,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 940062b229f688e4593b21dec7b7aa1a, type: 2}
   _imageContainer: {fileID: 337687493866166637}
   _timeBetweenChange: 0.05
+  _tweenType: 16
+  _tweenTime: 0.3
+  _tweenMoveAmount: -20
 --- !u!114 &990789240427162613
 MonoBehaviour:
   m_ObjectHideFlags: 0

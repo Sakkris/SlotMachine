@@ -37,8 +37,6 @@ public class SlotMachineManager : MonoBehaviour
         _playerCredits = 0;
         _betAmount = 5;
         _isSpinning = false;
-
-        UpdateBetText();
     }
 
     private void Start()
@@ -150,12 +148,6 @@ public class SlotMachineManager : MonoBehaviour
         if (_isSpinning) return;
 
         _betAmount = bet;
-        UpdateBetText();
-    }
-
-    public void UpdateBetText()
-    {
-        _betText.text = string.Format("Bet:\n{0}", _betAmount);
     }
 
     public void AddCredits(int credits)

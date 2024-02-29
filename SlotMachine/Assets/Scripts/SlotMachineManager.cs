@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class SlotMachineManager : MonoBehaviour
 {
-    public static SlotMachineManager Instance {get; private set;}
+    public static SlotMachineManager Instance { get; private set; }
 
     [Header("Slots")]
     [SerializeField] private Slot[] _slots;
@@ -19,6 +19,9 @@ public class SlotMachineManager : MonoBehaviour
     [Header("Interface")]
     [SerializeField] private TextMeshProUGUI _creditsText;
     [SerializeField] private TextMeshProUGUI _betText;
+
+    [Header("Particles")]
+    [SerializeField] private ParticleSystem[] _coinParticleSystems;
 
     private int _playerCredits;
     private int _betAmount;
@@ -141,6 +144,27 @@ public class SlotMachineManager : MonoBehaviour
     private void Win(ComboSO achievedCombo)
     {
         AddCredits(achievedCombo.Multiplier * _betAmount);
+
+        PlayCoinParticles(achievedCombo.Multiplier);
+    }
+
+    private void PlayCoinParticles(int multiplier)
+    {
+        if (multiplier <= 2)
+        {
+            _coinParticleSystems[0].Play();
+        }
+        else if (multiplier <= 5)
+        {
+            _coinParticleSystems[1].Play();
+            _coinParticleSystems[2].Play();
+        }
+        else
+        {
+            _coinParticleSystems[0].Play();
+            _coinParticleSystems[1].Play();
+            _coinParticleSystems[2].Play();
+        }
     }
 
     public void ChangeBetAmount(int bet)
